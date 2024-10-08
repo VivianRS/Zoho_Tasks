@@ -6,21 +6,21 @@ import stringexception.NullStringException;
 public class StringTaskModified{
 	
 	public void taskStringException(String str) throws NullStringException{
-		if(str==null || str.isEmpty()){
+		if(str==null){
 			throw new NullStringException("Invalid String or Null value is given. Please enter a valid string.");
 		}
 	}				
 	
 	//Example1 
 	
-	public String readString(String args[]){
-		if (args.length > 0){
+	public String readString(String[] args){
+		if (args!=null&&args.length > 0){
 			return args[0];
 		}
-		
 		else{
-			return "";
-		}
+			return null;
+		}			
+
 	}
 	
 
@@ -35,21 +35,14 @@ public class StringTaskModified{
 		taskStringException(str);
 		return str.toCharArray();
 	}
-	
-	public 
+	 
 	
 	//Example3
 
-	public String penUltimateChar(String str,int position) throws NullStringException{
+	public char charPosition(String str,int position) throws NullStringException{
 		taskStringException(str);
 		int len = str.length();
-		 
-		if(len<position){
-			return "There must be atleast "+position+" letters to find "+position+"th letter";
-		}
-		else{
-			return "The character is: "+str.charAt(len-position);
-		}
+		return str.charAt(len-position);
 	}
 	
 	//Example4
@@ -72,15 +65,7 @@ public class StringTaskModified{
 
 	public int greatestPosition(String str, char checkChar) throws NullStringException{
 		taskStringException(str);
-		int position = 0;
-		int len = str.length();
-		 
-		for (int i = len - 1;i>0;i--){
-			if(str.charAt(i)==checkChar){
-				position = i;
-			}
-		}
-		return position;
+		return str.lastIndexOf(checkChar);
 	}
 	
 	//Example6
@@ -103,41 +88,30 @@ public class StringTaskModified{
 	
 	//Example8
 
-	public String atBegining(String str,String strAdd,int position) throws NullStringException{
+	public String atBegining(String str,String strAdd) throws NullStringException{
 		taskStringException(str);
-		if(str.length()<position){
-			return strAdd;
-		}
-		else{
-			int len = strAdd.length();
-			return strAdd+str.substring(len);
-		}
+		int len = strAdd.length();
+		return strAdd+str.substring(len);
 	}
 	
 	//Example9
 
-	public boolean startCheck(String str,String checkStr,int position) throws NullStringException{
+	public boolean startCheck(String str,String checkStr) throws NullStringException{
 		taskStringException(str);
-		String check = str.substring(0,position);
-		if (check.equals(checkStr)){
-			return true;
-		}
-		else{
-			return false;
-		}
+		int len = checkStr.length();
+		String check = str.substring(0,len);
+		boolean result=check.equals(checkStr);
+		return result;
 	}
 	
 	//Example10
 	
-	public boolean endCheck(String str,String checkStr,int position) throws NullStringException{
+	public boolean endCheck(String str,String checkStr) throws NullStringException{
 		taskStringException(str);
-		String check = str.substring(str.length()-position,str.length());
-		if (check.equals(checkStr)){
-			return true;
-		}
-		else{
-			return false;
-		}
+		int len = checkStr.length();
+		String check = str.substring(len,str.length());
+		boolean result=check.equals(checkStr);
+		return result;
 	}
 	
 	//Example11
@@ -187,8 +161,8 @@ public class StringTaskModified{
 
 	public String multiLineConcat(String str) throws NullStringException{
     taskStringException(str);
-    String[] concatStrArr = str.split(" ");
-    return String.join("", concatStrArr);
+    String[] concatStrArr = str.split("\\s");
+    return String.join("\\s", concatStrArr);
 }
 
 	
@@ -196,7 +170,7 @@ public class StringTaskModified{
 
 	public String[] stringArrayConvert(String str) throws NullStringException{
 		taskStringException(str);
-		String[] stringArray = str.split(" ");
+		String[] stringArray = str.split("\\s");
 		return stringArray;
 	}
 	

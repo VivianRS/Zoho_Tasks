@@ -67,8 +67,8 @@ public class StringRunnerModified{
 						System.out.print("Enter a position(Number): ");
 						Scanner scanPosition = new Scanner(System.in);
 						userPos = scanPosition.nextInt();
-						str = strObj.penUltimateChar(userStr,userPos);
-						System.out.println(str);
+						char printChar = strObj.charPosition(userStr,userPos);
+						System.out.println(printChar);
 					}
 					
 						
@@ -156,10 +156,7 @@ public class StringRunnerModified{
 						System.out.print("Enter a String to be added: ");
 						Scanner scanAdd = new Scanner(System.in);
 						String userStrAdd = scanAdd.nextLine();
-						System.out.print("Enter the position(Number): ");
-						Scanner scanPosition = new Scanner(System.in);
-						userPos = scanPosition.nextInt();
-						System.out.println("The resulted string is:"+strObj.atBegining(userStr, userStrAdd, userPos));
+						System.out.println("The resulted string is:"+strObj.atBegining(userStr, userStrAdd));
 					}
 					catch(NullStringException strEx){
 						System.out.println(strEx.getMessage());
@@ -175,10 +172,7 @@ public class StringRunnerModified{
 						System.out.print("Enter a String to be checked: ");
 						Scanner scanCheck = new Scanner(System.in);
 						String userStrCheck = scanCheck.nextLine();
-						System.out.print("Enter the position(Number): ");
-						Scanner scanPosition = new Scanner(System.in);
-						userPos = scanPosition.nextInt();
-						System.out.println("Whether the given String '"+userStrCheck+"' present? "+strObj.startCheck(userStr, userStrCheck, userPos));
+						System.out.println("Whether the given String '"+userStrCheck+"' starts with "+userStrCheck+" ? "+strObj.startCheck(userStr, userStrCheck));
 					}
 					catch(NullStringException strEx){
 						System.out.println(strEx.getMessage());
@@ -194,10 +188,7 @@ public class StringRunnerModified{
 						System.out.print("Enter a String to be checked: ");
 						Scanner scanCheck = new Scanner(System.in);
 						String userStrCheck = scanCheck.nextLine();
-						System.out.print("Enter the position(Number): ");
-						Scanner scanPosition = new Scanner(System.in);
-						userPos = scanPosition.nextInt();
-						System.out.println("Whether the given String '"+userStrCheck+"' present? "+strObj.endCheck(userStr, userStrCheck, userPos));
+						System.out.println("Whether the given String '"+userStrCheck+"' ends with "+userStrCheck+" ? "+strObj.endCheck(userStr, userStrCheck));
 					}
 					catch(NullStringException strEx){
 						System.out.println(strEx.getMessage());
